@@ -2596,6 +2596,10 @@ public class MecanumMovement {
         return currentPower;
     }
 
+    //author: Nathaniel Cavallaro
+    //This method moves the robot from a given set of coordinates to another set of coordinates on the field.
+    //It gives the option to strafe sideways or move backwards instead of just forwards.
+    //There are several versions of this method. This is the last one (or at least one of the later ones).
     private boolean pointToPointNavigation(double x1, double y1, double x2, double y2, double hdg1,
                                            double initialHdg1, double speedAngle, double speedStraight, double runTime,
                                            boolean backwards, boolean strafeRight, boolean strafeLeft) {
@@ -2653,7 +2657,8 @@ public class MecanumMovement {
         }
         return pointIsDone;
     }
-
+    //author: Nathaniel Cavallaro
+    //This method performs the turn to a given set of coordinates on the field.
     private boolean pointToPointNavigationTurn(double x1, double y1, double x2, double y2, double hdg1, double initialHdg1, double speedAngle) {
 
         //point to point nav method variables
@@ -2695,7 +2700,9 @@ public class MecanumMovement {
     }
 
     private double encoderStart = 0;
-
+    
+    //author: Nathaniel Cavallaro
+    //This method corrects each turn using the imu (inertial measurement unit) for greater accuracy.
     private boolean imuTurnCorrection(double initialHdg, double expectedHdg) {
 
         switch (correctionStep) {
